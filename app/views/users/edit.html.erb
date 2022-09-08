@@ -1,2 +1,17 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<h1>Profile Edit</h1>
+<% if @user.errors.any? %>
+  <%= @user.errors.count %>件のエラーが発生しました
+  <ul>
+    <% @user.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_with model: @user do |f| %>
+  <p>Name:</p>
+  <%= f.text_field :name, autofocus: true, id: "inputName", placeholder: "Name" %>
+  <p>Profile Image:</p>
+  <%= f.file_field :profile_image, placeholder: "Profile Image", accept: "image/*" %>
+  <%= f.submit "Update" %>
+<% end %>
