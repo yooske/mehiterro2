@@ -1,0 +1,13 @@
+<% post_images.each do |post_image| %>
+  <div>
+    <%= image_tag post_image.get_image, size: '300x300' %><br>
+    <%= link_to user_path(post_image.user.id) do %>
+      User:<%= image_tag post_image.user.get_profile_image(100,100) %>
+    <% end %>
+    <p>Shop:<%= post_image.shop_name %></p>
+    <p>Caption:<%= post_image.caption %></p>
+    <p>User name:<%= post_image.user.name %></p>
+    <%= link_to 'Show', post_image_path(post_image.id) %>
+  </div>
+<% end %>
+<%= paginate post_images %>
