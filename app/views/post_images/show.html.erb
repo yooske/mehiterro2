@@ -1,8 +1,16 @@
 <h1>Detail</h1>
 <div>
-  <%= image_tag @post_image.get_image %>
+  <%= image_tag @post_image.get_image, size: '300x300' %>
   <p>Shop:<%= @post_image.shop_name %></p>
   <p>Caption:<%= @post_image.caption %></p>
   <p>User:<%= image_tag 'sample-author1.jpg' %></p>
   <p>Date:<%= @post_image.created_at.strftime('%Y/%m/%d') %></p>
+  <% if @post_image.user == current_user %>
+    <%= link_to post_image_path, method: :delete, class: "btn btn-danger" do %>
+      <i class="fa-regular fa-trash-can"></i>
+      Destroy
+    <% end %>
+    |
+  <% end %>
+  <%= link_to 'Back', post_images_path %>
 </div>
