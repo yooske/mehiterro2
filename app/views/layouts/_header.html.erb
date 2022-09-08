@@ -8,6 +8,24 @@
         <% end %>
       </li>
       <li>
+        <%= link_to post_images_path do %>
+          <i class="fa-light fa-utensils"></i>
+          Posts
+        <% end %>
+      </li>
+      <li>
+        <%= link_to users_path do %>
+          <i class="fa-light fa-users"></i>
+          Users
+        <% end %>
+      </li>
+      <li>
+        <%= link_to user_path(current_user.id) do %>
+          <i class="fa-light fa-user"></i>
+          My page
+        <% end %>
+      </li>
+      <li>
         <%= link_to destroy_user_session_path, method: :delete do %>
           <i class="fa-solid fa-arrow-right-from-bracket"></i>
           Log out

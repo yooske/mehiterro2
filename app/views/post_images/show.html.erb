@@ -3,7 +3,9 @@
   <%= image_tag @post_image.get_image, size: '300x300' %>
   <p>Shop:<%= @post_image.shop_name %></p>
   <p>Caption:<%= @post_image.caption %></p>
-  <p>User:<%= image_tag 'sample-author1.jpg' %></p>
+  <%= link_to user_path(@post_image.user.id) do %>
+    User:<%= image_tag @post_image.user.get_profile_image(100,100) %>
+  <% end %>
   <p>Date:<%= @post_image.created_at.strftime('%Y/%m/%d') %></p>
   <% if @post_image.user == current_user %>
     <%= link_to post_image_path, method: :delete, class: "btn btn-danger" do %>
