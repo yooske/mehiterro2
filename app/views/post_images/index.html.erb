@@ -6,5 +6,6 @@
     <p>Shop:<%= post_image.shop_name %></p>
     <p>Caption:<%= post_image.caption %></p>
     <p>User name:<%= post_image.user.name %></p>
+    <%= link_to 'Show', post_image_path(post_image.id) %>
   </div>
 <% end %>
