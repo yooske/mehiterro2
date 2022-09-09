@@ -1,61 +1,71 @@
-<header>
-  <ul>
-    <% if user_signed_in? %>
-      <li>
-        <%= link_to new_post_image_path do %>
-          <i class="fa-solid fa-circle-plus"></i>
-          New Post
-        <% end %>
-      </li>
-      <li>
-        <%= link_to post_images_path do %>
-          <i class="fa-solid fa-utensils"></i>
-          Posts
-        <% end %>
-      </li>
-      <li>
-        <%= link_to users_path do %>
-          <i class="fa-solid fa-users"></i>
-          Users
-        <% end %>
-      </li>
-      <li>
-        <%= link_to user_path(current_user.id) do %>
-          <i class="fa-regular fa-user"></i>
-          My page
-        <% end %>
-      </li>
-      <li>
-        <%= link_to destroy_user_session_path, method: :delete do %>
-          <i class="fa-solid fa-arrow-right-from-bracket"></i>
-          Log out
-        <% end %>
-      </li>
-    <% else %>
-      <li>
-        <%= link_to root_path do %>
-          <i class="fa-solid fa-house"></i>
-          Home
-        <% end %>
-      </li>
-      <li>
-        <%= link_to about_path do %>
-          <i class="fa-solid fa-link"></i>
-          About
-        <% end %>
-      </li>
-      <li>
-        <%= link_to new_user_session_path do %>
-          <i class="fa-solid fa-arrow-right-to-bracket"></i>
-          Log in
-        <% end %>
-      </li>
-      <li>
-        <%= link_to new_user_registration_path do %>
-          <i class="fa-solid fa-user-plus"></i>
-          Sign up
-        <% end %>
-      </li>
-    <% end %>
-  </ul>
+<header class="shadow-sm">
+  <nav class="navbar navbar-expend-lg navbar-light">
+    <div class="container">
+      <a class="navbar-brand p-3" href="/"><%= image_tag('logo.png') %></a>
+       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto">
+          <% if user_signed_in? %>
+            <li class="nav-item">
+              <%= link_to new_post_image_path, class: "nav-link text-dark" do %>
+                <i class="fa-solid fa-circle-plus"></i>
+                New Post
+              <% end %>
+            </li>
+            <li class="nav-item">
+              <%= link_to post_images_path, class: "nav-link text-dark" do %>
+                <i class="fa-solid fa-utensils"></i>
+                Posts
+              <% end %>
+            </li>
+            <li class="nav-item">
+              <%= link_to users_path, class: "nav-link text-dark" do %>
+                <i class="fa-solid fa-users"></i>
+                Users
+              <% end %>
+            </li>
+            <li class="nav-item">
+              <%= link_to user_path(current_user.id), class: "nav-link text-dark" do %>
+                <i class="fa-regular fa-user"></i>
+                My page
+              <% end %>
+            </li>
+            <li class="nav-item">
+              <%= link_to destroy_user_session_path, method: :delete, class: "nav-link text-dark" do %>
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                Log out
+              <% end %>
+            </li>
+          <% else %>
+            <li class="nav-item">
+              <%= link_to root_path, class: "nav-link text-dark" do %>
+                <i class="fa-solid fa-house"></i>
+                Home
+              <% end %>
+            </li>
+            <li class="nav-item">
+              <%= link_to about_path, class: "nav-link text-dark" do %>
+                <i class="fa-solid fa-link"></i>
+                About
+              <% end %>
+            </li>
+            <li class="nav-item">
+              <%= link_to new_user_session_path, class: "nav-link text-dark" do %>
+                <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                Log in
+              <% end %>
+            </li>
+            <li class="nav-item">
+              <%= link_to new_user_registration_path, class: "nav-link text-dark" do %>
+                <i class="fa-solid fa-user-plus"></i>
+                Sign up
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </nav>
 </header>
