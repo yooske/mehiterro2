@@ -7,6 +7,20 @@
     User:<%= image_tag @post_image.user.get_profile_image(100,100) %>
   <% end %>
   <p>Date:<%= @post_image.created_at.strftime('%Y/%m/%d') %></p>
+  <% if @post_image.favorited_by?(current_user) %>
+    <p>
+      <%= link_to post_image_favorites_path(@post_image), method: :delete, class: "text-danger" do %>
+        ♥ <%= @post_image.favorites.count %>いいね
+      <% end %>
+    </p>
+  <% else %>
+    <p>
+      <%= link_to post_image_favorites_path(@post_image), method: :post do %>
+        ♡ <%= @post_image.favorites.count %>いいね
+      <% end %>
+    </p>
+  <% end %>
+  <p>Comment:<%= @post_image.post_comments.count %></p>
   <% if @post_image.user == current_user %>
     <%= link_to post_image_path, method: :delete, class: "btn btn-danger" do %>
       <i class="fa-regular fa-trash-can"></i>
@@ -18,7 +32,6 @@
 </div>
 
 <div>
-  <p>Comment:<%= @post_image.post_comments.count %></p>
   <% @post_image.post_comments.each do |post_comment| %>
     <p><%= image_tag post_comment.user.get_profile_image(50,50) %></p>
     <%= post_comment.user.name %>
