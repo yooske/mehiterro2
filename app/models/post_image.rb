@@ -1,6 +1,7 @@
 class PostImage < ApplicationRecord
   has_one_attached :image
   belongs_to :user
+  has_many :post_comments, dependent: :destroy
 
   validates :shop_name, {presence: true, length: {maximum:20}}
   validates :caption, {presence: true, length: {maximum:60}}

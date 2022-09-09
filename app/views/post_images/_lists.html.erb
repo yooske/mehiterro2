@@ -18,6 +18,7 @@
             <p class="card-text">Caption:<%= post_image.caption %></p>
             <span><i class="fas fa-user"></i> By <%= post_image.user.name %> ｜ </span>
             <%= link_to 'Show', post_image_path(post_image.id) %>
+            <p><%= link_to "#{post_image.post_comments.count} Comment", post_image_path(post_image.id) %></p>
           </div>
         </div>
       </div>
