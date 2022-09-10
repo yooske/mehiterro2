@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   resources :post_images, only: [:new, :create, :index, :show, :destroy] do
     resource :favorites, only: [:create, :destroy]
     resources :post_comments, only: [:create, :destroy]
+    resource :relationships, only: [:create, :destroy]
+    get 'followings' => 'relationships#followings', as: 'followings'
+    get 'followers' => 'relationships#followers', as: 'followers'
   end
   root to: "homes#top"
   get 'homes/about' => 'homes#about', as: 'about'
