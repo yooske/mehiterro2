@@ -13,6 +13,9 @@
   <body class="d-flex flex-column vh-100">
     <%= render 'layouts/header' %>
     <main class="mb-auto">
+      <div class="d-flex justify-content-center mb-2">
+        <%= render 'searches/form' %>
+      </div>
     <%= yield %>
     </main>
     <%= render 'layouts/footer' %>
