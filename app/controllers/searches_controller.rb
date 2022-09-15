@@ -9,6 +9,7 @@ class SearchesController < ApplicationController
       @records = User.search_for(@content, @method)
     else
       @records = PostImage.search_for(@content, @method)
+      @records = @records.page(params[:page])
     end
   end
 end

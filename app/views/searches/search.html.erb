@@ -1,6 +1,6 @@
 <% if @model == 'user' %>
   <h3>Users search for "<%= @content %>"</h3>
-  <%= render 'users_index', users: @records %>
+  <%= render 'users/index', users: @records %>
 <% elsif @model == 'post_image' %>
   <h3>Posts search for "<%= @content %>"</h3>
   <%= render 'post_images/lists', post_images: @records %>
